@@ -2,10 +2,13 @@ package com.gamerlife.accountmicroservice.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.Email;
 
@@ -22,6 +25,9 @@ public class UserAccount implements Serializable{
 	private String email;
 	private String password;
 	
+	@OneToOne(fetch=FetchType.LAZY, optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private UserDetails userDetail;
+	
 	public UserAccount(String pseudo, String email, String password) {
 		super();
 		this.pseudo = pseudo;
@@ -30,7 +36,6 @@ public class UserAccount implements Serializable{
 	}
 	public UserAccount() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -56,7 +61,11 @@ public class UserAccount implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+	public UserDetails getUserDetail() {
+		return userDetail;
+	}
+	public void setUserDetail(UserDetails userDetail) {
+		this.userDetail = userDetail;
+	}
 	
 }

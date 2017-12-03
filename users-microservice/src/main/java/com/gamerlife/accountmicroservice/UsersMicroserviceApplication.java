@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.stereotype.Component;
 
 import com.gamerlife.accountmicroservice.domain.AccountRepository;
 import com.gamerlife.accountmicroservice.domain.UserAccount;import com.gamerlife.accountmicroservice.service.AccountService;
 
+@EnableEurekaClient
 @SpringBootApplication
 public class UsersMicroserviceApplication {
 
@@ -24,7 +26,6 @@ public class UsersMicroserviceApplication {
 	class AccountLineRunner implements CommandLineRunner{
 		
 		private final AccountRepository accountRepository;
-		
 		
 		@Autowired
 		public AccountLineRunner(AccountRepository accountRepository) {

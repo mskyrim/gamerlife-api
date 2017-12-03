@@ -24,6 +24,7 @@
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Dalston.SR4</spring-cloud.version>
 		<postgres.version>9.1-901-1.jdbc4</postgres.version>
+		<start-class>com.gamerlife.accountmicroservice.UsersMicroserviceApplication</start-class>
 	</properties>
 
 	<dependencies>
